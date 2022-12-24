@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104facd000b517b40b27fb0db8274964, type: 3}
+  m_Name: Jiruem
+  m_EditorClassIdentifier: 
+  name: Masaki Jiruem
+  story: Hey I am Jiruem but my friends call me Jiru I am an astronaut
+  description:
+  - Hey I am Jiruem but my friends call me Jiru I am an astronaut
+  - I have been working at Nasa for about 10 years
+  - and I am also an astronaut
+  propId: 0
+  numberOfPresses: 2
+  pressCounter: 0
+  lastUnlockedStory: 2
