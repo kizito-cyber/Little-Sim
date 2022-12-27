@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
-    public GameObject player;
-    public GameObject astronaut;
-    public int id;
+    public Template[] dialogue;
+   
+
+
+    private void Update()
+    {
+        TriggerDialogue();
+    }
     public void TriggerDialogue()
     {
        // Vector2.Distance(player.transform.position, astronaut.transform.position) < 3
-        if (ConversationTrigger.enterRange)
+        if (ConversationTrigger.inRange && Input.GetKeyDown(KeyCode.K))
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue[ConversationTrigger.instance.index]);
+           
         }
+      
         
     }
 

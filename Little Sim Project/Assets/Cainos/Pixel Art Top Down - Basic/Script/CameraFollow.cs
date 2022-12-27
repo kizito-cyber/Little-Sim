@@ -21,7 +21,7 @@ namespace Cainos.PixelArtTopDown_Basic
             offset = transform.position - target.position;
         }
 
-        private void LateUpdate()
+        private void Update()
         {
             if (target == null) return;
 

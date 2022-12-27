@@ -2,15 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-[CreateAssetMenu(fileName ="New Template",menuName ="Template")]
+using NaughtyAttributes;
+[CreateAssetMenu(fileName ="New Dialogue",menuName ="Dialogue")]
 public class Template : ScriptableObject
 {
-    public string name;
-    public string story;
-    public string[] description;
-    public int propId;
-    public int numberOfPresses;
-    public int pressCounter;
-    public int lastUnlockedStory;
+
+    public string personName;
+    [TextArea(5, 5)]
+    public List<string> personDescription = new List<string>();
+   
+    [Space]
+    public bool NotNPC;
+    [ShowIf("NotNPC")]
+    public List<string> dialogueName = new List<string>();
+    [ShowIf("NotNPC")]
+    public List<string> dialogueDescription = new List<string>();
+    [Space]
+    public bool isShopManager;
+    [ShowIf("isShopManager")]
+    public string shopManagerName;
+    [ShowIf("isShopManager")]
+    public string ShopManagerDescription;
 
 }
