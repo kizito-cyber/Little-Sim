@@ -10656,7 +10656,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 442176a7ed2bb5449901b317e3173db4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -15090,9 +15090,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2292ef3d79475840befe33b1a65673d, type: 2}
   - {fileID: 11400000, guid: 073d6980b79490c43aec3d6ce1d9bfd4, type: 2}
   - {fileID: 11400000, guid: 41a9d28da8061ca4b8109aca576fb0c9, type: 2}
+  - {fileID: 11400000, guid: bc991e81a1bdff9469bc5e3567048eeb, type: 2}
   animator: {fileID: 804465335}
   index: 0
   doneButton: {fileID: 241242591}
+  isShopKeeper: 0
+  shopPanel: {fileID: 1191038043}
 --- !u!95 &804465335
 Animator:
   serializedVersion: 4
@@ -30611,7 +30614,7 @@ GameObject:
   - component: {fileID: 1667889781}
   m_Layer: 0
   m_Name: ShopKeeper
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31213,6 +31216,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2292ef3d79475840befe33b1a65673d, type: 2}
   - {fileID: 11400000, guid: 073d6980b79490c43aec3d6ce1d9bfd4, type: 2}
   - {fileID: 11400000, guid: 41a9d28da8061ca4b8109aca576fb0c9, type: 2}
+  - {fileID: 11400000, guid: bc991e81a1bdff9469bc5e3567048eeb, type: 2}
 --- !u!4 &1696563834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7947911505737750448, guid: 6d69371a87148ee4dac7b2b814437ffd, type: 3}

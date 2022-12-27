@@ -20,4 +20,4 @@ MonoBehaviour:
   dialogueDescription: []
   isShopManager: 1
   shopManagerName: Shop Manager
-  ShopManagerDescription: What are you looking to buy?
+  ShopManagerDescription: What are you looking to buy? Press P to view the shop

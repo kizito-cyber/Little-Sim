@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class ConversationTrigger : MonoBehaviour
     public static ConversationTrigger instance;
     public GameObject chatButton;
     public GameObject dialoguePanel;
+    
     private void Awake()
     {
         instance = this;
@@ -36,6 +38,8 @@ public class ConversationTrigger : MonoBehaviour
             dialoguePanel.SetActive(true);
             chatButton.SetActive(true);
             chatButton.transform.position = new Vector2(collision.transform.position.x+.5f,collision.transform.position.y+ 1.3f);
+         
+           
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

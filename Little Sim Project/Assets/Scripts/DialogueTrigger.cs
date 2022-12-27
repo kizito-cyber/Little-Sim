@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Template[] dialogue;
-   
+    public static bool dialogueStarted = false;
 
 
     private void Update()
@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
         if (ConversationTrigger.inRange && Input.GetKeyDown(KeyCode.K))
         {
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue[ConversationTrigger.instance.index]);
-           
+           dialogueStarted= true;
         }
       
         

@@ -22,6 +22,7 @@ public class Template : ScriptableObject
     [ShowIf("isShopManager")]
     public string shopManagerName;
     [ShowIf("isShopManager")]
+    [TextArea(5, 5)]
     public string ShopManagerDescription;
 
 }

@@ -14,69 +14,93 @@ public class DialogueManager : MonoBehaviour
     bool isNull = false;
     public int index;
     public GameObject doneButton;
-  
-
+    public bool isShopKeeper = false;
+    public GameObject shopPanel;
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
         
 
-        //propstemplates = FindObjectOfType<PropsTemplates>().id;
-       // id = FindObjectOfType<PropsTemplates>().id;
     }
 
     public void StartDialogue(Template dialogue)
     {
-      
-           // TheEventManager.currentTemplate = template[id];
+
+        if (templateDialogue[ConversationTrigger.instance.index].isShopManager)
+        {
+
+          isShopKeeper= true;
             animator.SetBool("IsOpen", true);
-        // nameText.text = dialogue.name;
-        //  nameText.text = template[ConversationTrigger.peopleId].name;
-            nameText.text = templateDialogue[ConversationTrigger.instance.index].personName;
-            
-           descriptionText.text = templateDialogue[ConversationTrigger.instance.index].personDescription[index];
-        sentences.Clear();
+          
+            nameText.text = templateDialogue[ConversationTrigger.instance.index].shopManagerName;
+
+            descriptionText.text = templateDialogue[ConversationTrigger.instance.index].ShopManagerDescription;
+            sentences.Clear();
 
             foreach (string sentence in dialogue.personDescription)
             {
                 sentences.Enqueue(sentence);
             }
-        // DisplayNextSentence();
+           
 
-       // index = 0;
+            doneButton.SetActive(true);
+        }
+        else
+        {
+            animator.SetBool("IsOpen", true);
+
+            nameText.text = templateDialogue[ConversationTrigger.instance.index].personName;
+
+            descriptionText.text = templateDialogue[ConversationTrigger.instance.index].personDescription[index];
+            sentences.Clear();
+
+            foreach (string sentence in dialogue.personDescription)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+
+            // DisplayNextSentence();
+
+            // index = 0;
+        }
+
+
 
     }
     private void Update()
     {
-            
-        
+        if(isShopKeeper)
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                shopPanel.SetActive(true);
+            }
+        }
+      
     }
     public void DisplayNextSentence()
     {
+        if(DialogueTrigger.dialogueStarted)
 
-        index++;
-        if (sentences.Count ==0)
         {
-            EndDialogue();
-            return;
-        }
-        string sentence = sentences.Dequeue();
-        descriptionText.text = sentence;
-       
-        if (index >= templateDialogue[ConversationTrigger.instance.index].personDescription.Count-1)
-        {
-            doneButton.SetActive(true);
-            return;
+            index++;
+            if (sentences.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+            string sentence = sentences.Dequeue();
+            descriptionText.text = sentence;
+            if (index > templateDialogue[ConversationTrigger.instance.index].personDescription.Count - 1)
+            {
+                doneButton.SetActive(true);
+                return;
+            }
+            StartCoroutine(TypeSentence(sentence));
 
         }
-      
-       
-
-
-        StartCoroutine(TypeSentence(sentence));
-
-       
 
     }
     IEnumerator TypeSentence(string sentence)
@@ -85,10 +109,7 @@ public class DialogueManager : MonoBehaviour
         
         foreach(char letter in templateDialogue[ConversationTrigger.instance.index].personDescription[index])
         {
-       //  if(letter==null)
-         //   {
-          //      isNull = true;
-         //   }
+      
             descriptionText.text += letter;
             yield return null;
         }
